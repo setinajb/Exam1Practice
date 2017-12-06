@@ -2,9 +2,8 @@
 
 import rosegraphics as rg
 
+
 window = rg.RoseWindow(700, 400)
-
-
 x = 100
 y = 80
 counter = 0
