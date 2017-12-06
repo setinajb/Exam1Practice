@@ -8,8 +8,8 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jaclyn Setina.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -146,7 +146,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -163,6 +163,11 @@ def problem0a(n):
     #        Simply try a few examples to convince yourself of this.
     #        ASK FOR HELP if you do not understand this hint.
     # ------------------------------------------------------------------
+
+    if sum_of_digits(n) % 2 == 1:
+        return True
+    else:
+        return False
 
 
 def run_test_problem0b():
@@ -228,6 +233,17 @@ def problem0b(n):
     ####################################################################
     # ------------------------------------------------------------------
 
+    counter = 0
+    if is_prime(n) == 'True':
+        for k in range(n):
+            if n % 2 == 1:
+                counter = counter + 1
+
+    return counter
+
+
+
+
 
 def run_test_problem0c():
     """ Tests the   problem0c  function. """
@@ -286,7 +302,7 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -295,7 +311,49 @@ def problem0c(circle, n, window):
     ####################################################################
     # ------------------------------------------------------------------
 
+    window = rg.RoseWindow(700, 400)
+    x = 100
+    y = 80
+    counter = 0
+    for k in range(6):
+        center = rg.Point(x, y)
+        circle = rg.Circle(center, 30)
+        if k == 0:
+            circle.fill_color = 'blue'
+            counter = counter +1
+        x = x + 60
+        circle.attach_to(window)
+        window.render(0.5)  # Pauses for 0.05 seconds after rendering.
 
+    counter = 0
+    x = 80
+    y = 200
+    for k in range (4):
+        center2 = rg.Point(x, y)
+        circle2 = rg.Circle(center2, 60)
+        if k == 0:
+            circle2.fill_color = 'green'
+            counter = counter +1
+        x = x + 120
+        circle2.attach_to(window)
+        window.render(0.5)
+
+    window.close_on_mouse_click()
+
+    window2 = rg.RoseWindow(700, 400)
+
+    x = 100
+    y = 80
+    for k in range(10):
+        center = rg.Point(x, y)
+        circle = rg.Circle(center, 30)
+        if k == 0:
+            circle.fill_color = 'red'
+        x = x + 60
+        circle.attach_to(window2)
+        window2.render(0.5)  # Pauses for 0.05 seconds after rendering.
+
+    window2.close_on_mouse_click()
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------

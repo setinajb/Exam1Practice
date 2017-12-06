@@ -2,6 +2,8 @@
 
 import rosegraphics as rg
 
+
+def
 window = rg.RoseWindow(550, 500)
 
 x = 100
