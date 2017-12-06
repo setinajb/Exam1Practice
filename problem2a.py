@@ -19,6 +19,23 @@ rectangle.attach_to(window)
 window.render()
 window.continue_on_mouse_click()
 
+start_point = rg.Point(300, 150)
+end_point = rg.Point(100, 250)
+line = rg.Line(start_point, end_point)
+line.arrow = 'last'
+line.attach_to(window)
+
+window.render()
+window.continue_on_mouse_click()
+
+
+circle.fill_color = 'blue'
+circle.attach_to(window)
+
+window.render()
+window.close_on_mouse_click()
+
+
 
 
 
