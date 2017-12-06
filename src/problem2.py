@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 2.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jaclyn Setina.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -102,7 +102,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -110,6 +110,83 @@ def problem2a(circle, rectangle, window):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:   10 to 15 minutes.
     # ------------------------------------------------------------------
+
+    import rosegraphics as rg
+
+    window = rg.RoseWindow(700, 400)
+
+    center = rg.Point(100, 50)
+    circle = rg.Circle(center, 40)
+    circle.fill_color = 'red'
+    circle.attach_to(window)
+
+    corner_1 = rg.Point(100, 150)
+    corner_2 = rg.Point(300, 250)
+    rectangle = rg.Rectangle(corner_1, corner_2)
+    rectangle.outline_color = 'blue'
+    rectangle.attach_to(window)
+
+    window.render()
+    window.continue_on_mouse_click()
+
+    start_point = rg.Point(300, 150)
+    end_point = rg.Point(100, 250)
+    line = rg.Line(start_point, end_point)
+    line.arrow = 'last'
+    line.attach_to(window)
+
+    window.render()
+    window.continue_on_mouse_click()
+
+    circle.fill_color = 'blue'
+    circle.attach_to(window)
+
+    window.render()
+    window.continue_on_mouse_click()
+
+    # TEST 2
+
+    center = rg.Point(500, 150)
+    circle2 = rg.Circle(center, 80)
+    circle2.attach_to(window)
+
+    corner_1 = rg.Point(500, 150)
+    corner_2 = rg.Point(700, 250)
+    rectangle2 = rg.Rectangle(corner_1, corner_2)
+    rectangle2.outline_color = 'green'
+    rectangle2.attach_to(window)
+
+    window.render()
+    window.continue_on_mouse_click()
+
+    start_point = rg.Point(700, 150)
+    end_point = rg.Point(500, 250)
+    line = rg.Line(start_point, end_point)
+    line.arrow = 'last'
+    line.attach_to(window)
+
+    window.render()
+    window.continue_on_mouse_click()
+
+    circle2.fill_color = 'green'
+    window.render()
+    window.close_on_mouse_click()
+
+    window2 = rg.RoseWindow(400, 700)
+
+    center = rg.Point(200, 150)
+    circle = rg.Circle(center, 100)
+    circle.fill_color = 'yellow'
+    circle.attach_to(window2)
+
+    point_1 = rg.Point(100, 250)
+    point_2 = rg.Point(300, 600)
+    rectangle3 = rg.Rectangle(point_1, point_2)
+    rectangle3.attach_to(window2)
+
+    window2.render()
+    window2.close_on_mouse_click()
+
 
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
@@ -181,6 +258,74 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # ------------------------------------------------------------------
+    win = rg.RoseWindow(550, 500)
+
+    x = 100
+    y = 100
+    x2 = 140
+    y2 = 120
+    point1 = rg.Point(x, y)
+    point2 = rg.Point(x2, y2)
+    for k in range(n):
+        rect = rg.Rectangle(point1, point2)
+        rect.attach_to(win)
+        x = x - delta
+        y = y - delta
+        point1 = rg.Point(x, y)
+        x2 = x2 + delta
+        y2 = y2 + delta
+        point2 = rg.Point(x2, y2)
+        if k == 0:
+            rect.fill_color = 'blue'
+
+    win.render()
+    win.close_on_mouse_click()
+
+
+    # # Doing the green rectangle part
+    # x = 350
+    # y = 200
+    # x2 = 400
+    # y2 = 300
+    # point1 = rg.Point(x, y)
+    # point2 = rg.Point(x2, y2)
+    # for k in range(n):
+    #     rect = rg.Rectangle(point1, point2)
+    #     rect.attach_to(window)
+    #     x = x - 50
+    #     y = y - 50
+    #     point1 = rg.Point(x, y)
+    #     x2 = x2 + 50
+    #     y2 = y2 + 50
+    #     point2 = rg.Point(x2, y2)
+    #     if k == 0:
+    #         rect.fill_color = 'green'
+    #
+    # window.render()
+    # window.close_on_mouse_click()
+    #
+    #
+    # window2 = rg.RoseWindow(550, 500)
+    # x = 200
+    # y = 200
+    # x2 = 250
+    # y2 = 250
+    # point1 = rg.Point(x, y)
+    # point2 = rg.Point(x2, y2)
+    # for k in range(10):
+    #     rect = rg.Rectangle(point1, point2)
+    #     rect.attach_to(window2)
+    #     x = x - 12
+    #     y = y - 12
+    #     point1 = rg.Point(x, y)
+    #     x2 = x2 + 12
+    #     y2 = y2 + 12
+    #     point2 = rg.Point(x2, y2)
+    #     if k == 0:
+    #         rect.fill_color = 'red'
+    #
+    # window2.render()
+    # window2.close_on_mouse_click()
 
 
 # ----------------------------------------------------------------------

@@ -223,7 +223,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -234,15 +234,12 @@ def problem0b(n):
     # ------------------------------------------------------------------
 
     counter = 0
-    if is_prime(n) == 'True':
-        for k in range(n):
-            if n % 2 == 1:
-                counter = counter + 1
+    for k in range(2, n+1):
+        if is_prime(k) == True:
+            counter = counter + 1
+
 
     return counter
-
-
-
 
 
 def run_test_problem0c():
@@ -311,49 +308,17 @@ def problem0c(circle, n, window):
     ####################################################################
     # ------------------------------------------------------------------
 
-    window = rg.RoseWindow(700, 400)
-    x = 100
-    y = 80
-    counter = 0
-    for k in range(6):
+    circle.attach_to(window)
+    r = circle.radius
+    x = circle.center.x + (2*r)
+    y = circle.center.y
+    for k in range(n):
         center = rg.Point(x, y)
-        circle = rg.Circle(center, 30)
-        if k == 0:
-            circle.fill_color = 'blue'
-            counter = counter +1
-        x = x + 60
+        circle = rg.Circle(center, r)
+        x = x + (2*r)
         circle.attach_to(window)
         window.render(0.5)  # Pauses for 0.05 seconds after rendering.
 
-    counter = 0
-    x = 80
-    y = 200
-    for k in range (4):
-        center2 = rg.Point(x, y)
-        circle2 = rg.Circle(center2, 60)
-        if k == 0:
-            circle2.fill_color = 'green'
-            counter = counter +1
-        x = x + 120
-        circle2.attach_to(window)
-        window.render(0.5)
-
-    window.close_on_mouse_click()
-
-    window2 = rg.RoseWindow(700, 400)
-
-    x = 100
-    y = 80
-    for k in range(10):
-        center = rg.Point(x, y)
-        circle = rg.Circle(center, 30)
-        if k == 0:
-            circle.fill_color = 'red'
-        x = x + 60
-        circle.attach_to(window2)
-        window2.render(0.5)  # Pauses for 0.05 seconds after rendering.
-
-    window2.close_on_mouse_click()
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
