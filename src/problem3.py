@@ -137,7 +137,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -145,6 +145,23 @@ def problem3a(window, point, n):
     #    DIFFICULTY:      7 or 8
     #    TIME ESTIMATE:   20 to 35 minutes.
     # ------------------------------------------------------------------
+    total = 0
+    for line_number in range(n):
+        top_point = point
+        bottom_point = rg.Point(point.x, point.y + 50)
+        line = rg.Line(top_point, bottom_point)
+        line.thickness = line_number*2 + 1
+        if line.thickness > 13:
+            line.thickness = 13
+        total = total + line.thickness
+        line.attach_to(window)
+        point = rg.Point(point.x + 20, point.y + 10)
+
+    window.render()
+    return total
+
+
+
 
 
 def run_test_problem3b():
