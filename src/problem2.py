@@ -195,7 +195,7 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -203,74 +203,16 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # ------------------------------------------------------------------
-    win = rg.RoseWindow(550, 500)
 
-    x = 100
-    y = 100
-    x2 = 140
-    y2 = 120
-    point1 = rg.Point(x, y)
-    point2 = rg.Point(x2, y2)
     for k in range(n):
-        rect = rg.Rectangle(point1, point2)
         rect.attach_to(win)
-        x = x - delta
-        y = y - delta
-        point1 = rg.Point(x, y)
-        x2 = x2 + delta
-        y2 = y2 + delta
-        point2 = rg.Point(x2, y2)
-        if k == 0:
-            rect.fill_color = 'blue'
-
+        corner_1 = rect.get_upper_left_corner()
+        corner_2 = rect.get_lower_right_corner()
+        corner_1.move_by(-delta, -delta)
+        corner_2.move_by(delta, delta)
+        rect = rg.Rectangle(corner_1, corner_2)
     win.render()
     win.close_on_mouse_click()
-
-
-    # # Doing the green rectangle part
-    # x = 350
-    # y = 200
-    # x2 = 400
-    # y2 = 300
-    # point1 = rg.Point(x, y)
-    # point2 = rg.Point(x2, y2)
-    # for k in range(n):
-    #     rect = rg.Rectangle(point1, point2)
-    #     rect.attach_to(window)
-    #     x = x - 50
-    #     y = y - 50
-    #     point1 = rg.Point(x, y)
-    #     x2 = x2 + 50
-    #     y2 = y2 + 50
-    #     point2 = rg.Point(x2, y2)
-    #     if k == 0:
-    #         rect.fill_color = 'green'
-    #
-    # window.render()
-    # window.close_on_mouse_click()
-    #
-    #
-    # window2 = rg.RoseWindow(550, 500)
-    # x = 200
-    # y = 200
-    # x2 = 250
-    # y2 = 250
-    # point1 = rg.Point(x, y)
-    # point2 = rg.Point(x2, y2)
-    # for k in range(10):
-    #     rect = rg.Rectangle(point1, point2)
-    #     rect.attach_to(window2)
-    #     x = x - 12
-    #     y = y - 12
-    #     point1 = rg.Point(x, y)
-    #     x2 = x2 + 12
-    #     y2 = y2 + 12
-    #     point2 = rg.Point(x2, y2)
-    #     if k == 0:
-    #         rect.fill_color = 'red'
-    #
-    # window2.render()
-    # window2.close_on_mouse_click()
 
 
 # ----------------------------------------------------------------------
