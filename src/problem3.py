@@ -160,8 +160,9 @@ def problem3a(window, point, n):
     window.render()
     return total
 
-
-
+def test(problem_num, test_num, actual, expected):
+    print("Problem {}, test {}: {}".format(problem_num, test_num, ('Fail','Pass')[expected == actual]))
+    print("\tExpected: {} \n\tActual: {}".format(expected, actual))
 
 
 def run_test_problem3b():
@@ -179,6 +180,8 @@ def run_test_problem3b():
     print()
     print('Test 2 expected:', expected)
     print('       actual:  ', answer)
+
+    test('3b', 3, problem3b(2, rg.Point(100,50)), 34)
 
 
 def problem3b(m, point1):
@@ -218,7 +221,7 @@ def problem3b(m, point1):
         :type point1: rg.Point
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -231,6 +234,36 @@ def problem3b(m, point1):
     #    DIFFICULTY:      8 or 9
     #    TIME ESTIMATE:   20 to 30 minutes.
     # ------------------------------------------------------------------
+
+    window = rg.RoseWindow(400, 650)
+
+    total = 0
+    num_lines = 3
+    y = point1.y
+    for k in range(m):
+        print(k, y, num_lines)
+        # draw line
+        point = rg.Point(point1.x,y)
+        set_thickness = problem3a(window, point, num_lines)
+        total = total + set_thickness
+
+        num_lines = num_lines + 2
+
+        y = y + 60
+
+    window.render()
+    window.close_on_mouse_click()
+    return total
+
+
+    # How do I draw the correct number of lines before moving to the next case?
+
+
+
+
+
+
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
